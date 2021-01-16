@@ -1,29 +1,19 @@
 language: android
-dist: trusty
+
 sudo: false
-jdk:
-  - oraclejdk8
+
+jdk: oraclejdk8
+
+dist: trusty
+
 android:
   components:
     - tools
+    - platform-tools
     - android-28
     - build-tools-28.0.3
-    - platform-tools
-before_cache:
-  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-cache:
-  directories:
-    - "${TRAVIS_BUILD_DIR}/gradle/caches/"
-    - "${TRAVIS_BUILD_DIR}/gradle/wrapper/dists/"
-    - "$HOME/.gradle/caches/"
-    - "$HOME/.gradle/wrapper/"
-
-script:
-  - ./gradlew spotlessCheck
-  - ./gradlew build
 
 
-branches:
-  only:
-    - master
-    - development
+
+
+
