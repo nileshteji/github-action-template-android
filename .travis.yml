@@ -17,13 +17,11 @@ cache:
     - "${TRAVIS_BUILD_DIR}/gradle/wrapper/dists/"
     - "$HOME/.gradle/caches/"
     - "$HOME/.gradle/wrapper/"
-before_script:
-  - bash scripts/prep-key.sh
+
 script:
   - ./gradlew spotlessCheck
   - ./gradlew build
-after_success:
-  - bash scripts/update-apk.sh
+
 
 branches:
   only:
